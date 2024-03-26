@@ -12,6 +12,6 @@ public class RolinhaItemGroup extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(ModItems.ROLINHA_SEED.get());
+        return new ItemStack(ModItems.ROLINHA_MADURA.get());
     }
 }

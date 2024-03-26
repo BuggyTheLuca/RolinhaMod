@@ -12,7 +12,9 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, RolinhaMod.MOD_ID);
 
     // Aqui você associa o item ao grupo de itens personalizado
-    public static final RegistryObject<Item> ROLINHA_SEED = ITEMS.register("rolinha_seed", RolinhaSeedItem::new);
+    public static final RegistryObject<Item> ROLINHA_SEED = ITEMS.register("rolinha_seed", RolinhaSeed::new);
+
+    public static final RegistryObject<Item> ROLINHA_MADURA = ITEMS.register("rolinha_madura", RolinhaMadura::new);
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

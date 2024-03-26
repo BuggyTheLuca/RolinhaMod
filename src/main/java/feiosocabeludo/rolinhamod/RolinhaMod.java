@@ -1,5 +1,6 @@
 package feiosocabeludo.rolinhamod;
 
+import feiosocabeludo.rolinhamod.blocks.ModBlocks;
 import feiosocabeludo.rolinhamod.items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -34,6 +35,7 @@ public class RolinhaMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the setup method for modloading
         modEventBus.addListener(this::setup);

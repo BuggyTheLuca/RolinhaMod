@@ -1,6 +1,9 @@
 package feiosocabeludo.rolinhamod.items;
 
 import feiosocabeludo.rolinhamod.RolinhaMod;
+import feiosocabeludo.rolinhamod.blocks.ModBlocks;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -11,8 +14,8 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, RolinhaMod.MOD_ID);
 
-    // Aqui você associa o item ao grupo de itens personalizado
-    public static final RegistryObject<Item> ROLINHA_SEED = ITEMS.register("rolinha_seed", RolinhaSeed::new);
+    public static final RegistryObject<Item> ROLINHA_SEED = ITEMS.register("rolinha_seed",
+            () -> new BlockItem(ModBlocks.ROLINHA_PLANT_BLOCK.get(), new Item.Properties().group(RolinhaItemGroup.ROLINHA_GROUP)));
 
     public static final RegistryObject<Item> ROLINHA_MADURA = ITEMS.register("rolinha_madura", RolinhaMadura::new);
 

@@ -4,6 +4,8 @@ import feiosocabeludo.rolinhamod.blocks.ModBlocks;
 import feiosocabeludo.rolinhamod.items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -60,6 +62,10 @@ public class RolinhaMod {
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+
+        event.enqueueWork(() -> {
+            RenderTypeLookup.setRenderLayer(ModBlocks.ROLINHA_PLANT_BLOCK.get(), RenderType.getCutout());
+        });
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

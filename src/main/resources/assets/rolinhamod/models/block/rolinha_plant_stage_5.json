@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "rolinhamod:block/rolinha_plant_stage_5"
+  }
+}

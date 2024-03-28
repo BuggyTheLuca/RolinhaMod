@@ -3,7 +3,6 @@ package feiosocabeludo.rolinhamod.items;
 import feiosocabeludo.rolinhamod.RolinhaMod;
 import feiosocabeludo.rolinhamod.blocks.ModBlocks;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;

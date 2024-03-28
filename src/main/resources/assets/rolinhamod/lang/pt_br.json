@@ -1,6 +1,5 @@
 {
-  "item.rolinhamod.rolinha_seed": "Semente de rolinha",
   "item.rolinhamod.rolinha_madura": "Rola madura",
-  "itemGroup.rolinha_group": "Rolinha mod",
-  "block.rolinhamod.rolinha_plant": "Rolinha plantada"
+  "itemGroup.rolinha_group": "Rolitas",
+  "block.rolinhamod.rolinha_plant": "Semente de rolinha"
 }

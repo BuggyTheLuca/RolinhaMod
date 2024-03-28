@@ -2,15 +2,20 @@ package feiosocabeludo.rolinhamod;
 
 import feiosocabeludo.rolinhamod.blocks.ModBlocks;
 import feiosocabeludo.rolinhamod.items.ModItems;
+import feiosocabeludo.rolinhamod.screens.RPGScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -20,6 +25,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.glfw.GLFW;
 
 import java.util.stream.Collectors;
 
@@ -28,6 +34,10 @@ import java.util.stream.Collectors;
 public class RolinhaMod {
 
     public static final String MOD_ID = "rolinhamod";
+
+    public static final KeyBinding OPEN_RPG_GUI_KEY = new KeyBinding("key.seu_mod_id.open_gui",
+                                                                 GLFW.GLFW_KEY_O,
+                                                                 "key.categories.seu_mod_id");
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
@@ -47,6 +57,8 @@ public class RolinhaMod {
         modEventBus.addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         modEventBus.addListener(this::doClientStuff);
+
+        ClientRegistry.registerKeyBinding(OPEN_RPG_GUI_KEY);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

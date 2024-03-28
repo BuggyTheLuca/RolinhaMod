@@ -1,5 +1,14 @@
 {
   "item.rolinhamod.rolinha_madura": "Rola madura",
   "itemGroup.rolinha_group": "Rolitas",
-  "block.rolinhamod.rolinha_plant": "Semente de rolinha"
+  "block.rolinhamod.rolinha_plant": "Semente de rolinha",
+  "rolinhamod.RPGgui.title": "RPG da rolinha",
+  "rolinhamod.rpg_class.unselected": "Não selecionado",
+  "rolinhamod.rpg_class.ladino": "Ladino",
+  "rolinhamod.rpg_class.guerreiro": "Guerreiro",
+  "rolinhamod.rpg_class.arqueiro": "Arqueiro",
+  "rolinhamod.rpg_class.mago": "Mago",
+  "rolinhamod.rpg_class.necromante": "Necromante",
+  "rolinhamod.rpg_class.clerigo": "Clerigo",
+  "rolinhamod.RPGgui.currentClass.title": "Escolha sua classe"
 }

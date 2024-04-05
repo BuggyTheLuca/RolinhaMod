@@ -1,8 +1,8 @@
-package feiosocabeludo.rolinhamod.blocks;
+package feiosocabeludo.rolinhamod.gameObjects.blocks;
 
 import feiosocabeludo.rolinhamod.RolinhaMod;
-import feiosocabeludo.rolinhamod.items.ModItems;
-import feiosocabeludo.rolinhamod.items.RolinhaItemGroup;
+import feiosocabeludo.rolinhamod.gameObjects.items.ItemsRegister;
+import feiosocabeludo.rolinhamod.gameObjects.items.RolinhaItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -17,7 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = RolinhaMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModBlocks {
+public class BlocksRegister {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, RolinhaMod.MOD_ID);
 
@@ -32,7 +32,7 @@ public class ModBlocks {
     }
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block){
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+        ItemsRegister.ITEMS.register(name, () -> new BlockItem(block.get(),
                 new Item.Properties().group(RolinhaItemGroup.ROLINHA_GROUP)));
     }
 

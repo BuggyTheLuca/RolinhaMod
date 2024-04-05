@@ -1,4 +1,4 @@
-package feiosocabeludo.rolinhamod.items;
+package feiosocabeludo.rolinhamod.gameObjects.items;
 
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;

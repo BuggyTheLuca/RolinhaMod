@@ -1,7 +1,7 @@
 package feiosocabeludo.rolinhamod.screens;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import feiosocabeludo.rolinhamod.handlers.RPGScreenHandler;
+import feiosocabeludo.rolinhamod.services.RPGScreenService;
 import feiosocabeludo.rolinhamod.utils.enums.rpgClassEnum;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.button.Button;
@@ -29,7 +29,7 @@ public final class RPGScreen extends Screen {
     /** Distance from bottom of the screen to the "Done" button's top */
     private static final int DONE_BUTTON_TOP_OFFSET = 26;
 
-    private static final RPGScreenHandler handler = RPGScreenHandler.getInstance();
+    private static final RPGScreenService rpgScreenService = RPGScreenService.getInstance();
 
 
     /** List of options rows shown on the screen */
@@ -63,17 +63,17 @@ public final class RPGScreen extends Screen {
         this.optionsRowList.addOption(new IteratableOption(
                 "rolinhamod.RPGgui.currentClass.title",
                 (unused, newValue) ->{
-                    if(!handler.isClassSelected()){
-                        handler.changeCurrentClass(rpgClassEnum.values()[
-                                (handler.currentClass().ordinal() + newValue)
+                    if(!rpgScreenService.isClassSelected()){
+                        rpgScreenService.changeCurrentClass(rpgClassEnum.values()[
+                                (rpgScreenService.currentClass().ordinal() + newValue)
                                         % rpgClassEnum.values().length]);
-                        System.out.println(handler.isClassSelected());
+                        System.out.println(rpgScreenService.isClassSelected());
                     }
                 },
                 (unused, option) -> new StringTextComponent(I18n.format(
                         "rolinhamod.RPGgui.currentClass.title"
                 ) + ": " + I18n.format(
-                        handler.currentClass().getTranslateKey()
+                        rpgScreenService.currentClass().getTranslateKey()
                 ))
         ));
 
@@ -103,7 +103,7 @@ public final class RPGScreen extends Screen {
 
     @Override
     public void onClose() {
-        handler.blockClassSelect();
+        rpgScreenService.blockClassSelect();
         super.onClose();
     }
 }

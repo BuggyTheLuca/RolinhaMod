@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "rolinhamod:rolinha_madura"
+    }
+  },
+  "result": {
+    "item": "rolinhamod:rolinha_seed",
+    "count": 1
+  }
+}

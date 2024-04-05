@@ -1,4 +1,4 @@
-package feiosocabeludo.rolinhamod.items;
+package feiosocabeludo.rolinhamod.gameObjects.items;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -12,6 +12,6 @@ public class RolinhaItemGroup extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(ModItems.ROLINHA_MADURA.get());
+        return new ItemStack(ItemsRegister.ROLINHA_MADURA.get());
     }
 }

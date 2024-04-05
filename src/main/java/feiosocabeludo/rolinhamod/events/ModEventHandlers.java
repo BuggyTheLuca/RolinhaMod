@@ -1,8 +1,8 @@
 package feiosocabeludo.rolinhamod.events;
 
 import feiosocabeludo.rolinhamod.RolinhaMod;
-import feiosocabeludo.rolinhamod.blocks.ModBlocks;
-import feiosocabeludo.rolinhamod.items.ModItems;
+import feiosocabeludo.rolinhamod.gameObjects.blocks.BlocksRegister;
+import feiosocabeludo.rolinhamod.gameObjects.items.ItemsRegister;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,14 +27,14 @@ public class ModEventHandlers {
         ItemStack heldItem = player.getHeldItem(hand);
 
         // Verifica se o jogador está segurando a semente da rolinha
-        if (heldItem.getItem() == ModItems.ROLINHA_SEED.get()) {
+        if (heldItem.getItem() == ItemsRegister.ROLINHA_SEED.get()) {
             BlockState clickedBlockState = world.getBlockState(pos);
             BlockPos upPos = pos.up();
 
             // Verifica se o bloco clicado é solo arado e se há espaço acima para plantar a semente
             if (clickedBlockState.getBlock() == Blocks.FARMLAND && world.isAirBlock(upPos)) {
                 // Planta a semente e diminui a quantidade no inventário do jogador
-                world.setBlockState(upPos, ModBlocks.ROLINHA_PLANT_BLOCK.get().getDefaultState());
+                world.setBlockState(upPos, BlocksRegister.ROLINHA_PLANT_BLOCK.get().getDefaultState());
                 if (!player.isCreative()) {
                     heldItem.shrink(1);
                 }

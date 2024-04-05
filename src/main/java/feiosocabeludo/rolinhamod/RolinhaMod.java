@@ -1,8 +1,7 @@
 package feiosocabeludo.rolinhamod;
 
-import feiosocabeludo.rolinhamod.blocks.ModBlocks;
-import feiosocabeludo.rolinhamod.items.ModItems;
-import feiosocabeludo.rolinhamod.screens.RPGScreen;
+import feiosocabeludo.rolinhamod.gameObjects.blocks.BlocksRegister;
+import feiosocabeludo.rolinhamod.gameObjects.items.ItemsRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
@@ -12,9 +11,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.InterModComms;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -46,8 +43,8 @@ public class RolinhaMod {
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
+        ItemsRegister.register(modEventBus);
+        BlocksRegister.register(modEventBus);
 
         // Register the setup method for modloading
         modEventBus.addListener(this::setup);
@@ -76,7 +73,7 @@ public class RolinhaMod {
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
 
         event.enqueueWork(() -> {
-            RenderTypeLookup.setRenderLayer(ModBlocks.ROLINHA_PLANT_BLOCK.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(BlocksRegister.ROLINHA_PLANT_BLOCK.get(), RenderType.getCutout());
         });
     }
 

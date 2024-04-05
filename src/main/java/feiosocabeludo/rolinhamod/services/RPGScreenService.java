@@ -1,4 +1,4 @@
-package feiosocabeludo.rolinhamod.handlers;
+package feiosocabeludo.rolinhamod.services;
 
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import feiosocabeludo.rolinhamod.RolinhaMod;
@@ -12,9 +12,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
-public class RPGScreenHandler {
+public class RPGScreenService {
 
-    private static final RPGScreenHandler INSTANCE;
+    private static final RPGScreenService INSTANCE;
 
     /**
      * The {@link ForgeConfigSpec} instance for this mod's configuration
@@ -28,8 +28,8 @@ public class RPGScreenHandler {
             Paths.get("config", RolinhaMod.MOD_ID + ".toml");
 
     static {
-        Pair<RPGScreenHandler, ForgeConfigSpec> specPair =
-                new ForgeConfigSpec.Builder().configure(RPGScreenHandler::new);
+        Pair<RPGScreenService, ForgeConfigSpec> specPair =
+                new ForgeConfigSpec.Builder().configure(RPGScreenService::new);
         INSTANCE = specPair.getLeft();
         SPEC = specPair.getRight();
         CommentedFileConfig config = CommentedFileConfig.builder(CONFIG_PATH)
@@ -47,10 +47,10 @@ public class RPGScreenHandler {
 
 
 
-    public RPGScreenHandler(ForgeConfigSpec.Builder configSpecBuilder){
+    public RPGScreenService(ForgeConfigSpec.Builder configSpecBuilder){
         currentClass = configSpecBuilder
-                .translation("hbwhelper.configGui.currentDreamMode.title")
-                .defineEnum("currentDreamMode", rpgClassEnum.UNSELECTED);
+                .translation("rolinhamod.RPGgui.currentClass.title")
+                .defineEnum("currentClass", rpgClassEnum.UNSELECTED);
     }
 
     public boolean isClassSelected(){
@@ -59,9 +59,10 @@ public class RPGScreenHandler {
 
     public void blockClassSelect(){
         isClassSelected = true;
+
     }
 
-    public static RPGScreenHandler getInstance() {
+    public static RPGScreenService getInstance() {
         return INSTANCE;
     }
 
@@ -70,7 +71,6 @@ public class RPGScreenHandler {
     }
 
     public void changeCurrentClass(rpgClassEnum value){
-        System.out.println(value);
         currentClass.set(value);
     }
 }

@@ -1,4 +1,4 @@
-package feiosocabeludo.rolinhamod.handlers;
+package feiosocabeludo.rolinhamod.services.handlers;
 
 import feiosocabeludo.rolinhamod.RolinhaMod;
 import feiosocabeludo.rolinhamod.screens.RPGScreen;

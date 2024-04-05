@@ -1,6 +1,6 @@
-package feiosocabeludo.rolinhamod.blocks;
+package feiosocabeludo.rolinhamod.gameObjects.blocks;
 
-import feiosocabeludo.rolinhamod.items.ModItems;
+import feiosocabeludo.rolinhamod.gameObjects.items.ItemsRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
@@ -34,6 +34,6 @@ public class RolinhaPlantBlock extends CropsBlock{
 
     @Override
     protected IItemProvider getSeedsItem(){
-        return ModItems.ROLINHA_SEED.get();
+        return ItemsRegister.ROLINHA_SEED.get();
     }
 }

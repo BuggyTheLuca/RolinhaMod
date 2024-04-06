@@ -1,6 +1,7 @@
 package feiosocabeludo.rolinhamod.services;
 
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
+import feiosocabeludo.rolinhamod.Player.ModPlayer;
 import feiosocabeludo.rolinhamod.RolinhaMod;
 import feiosocabeludo.rolinhamod.utils.enums.rpgClassEnum;
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -41,25 +42,15 @@ public class RPGScreenService {
         SPEC.setConfig(config);
     }
 
+    private final PlayerService playerService = PlayerService.getInstance();
+
     private final EnumValue<rpgClassEnum> currentClass;
-
-    private boolean isClassSelected = false;
-
 
 
     public RPGScreenService(ForgeConfigSpec.Builder configSpecBuilder){
         currentClass = configSpecBuilder
                 .translation("rolinhamod.RPGgui.currentClass.title")
                 .defineEnum("currentClass", rpgClassEnum.UNSELECTED);
-    }
-
-    public boolean isClassSelected(){
-        return isClassSelected;
-    }
-
-    public void blockClassSelect(){
-        isClassSelected = true;
-
     }
 
     public static RPGScreenService getInstance() {
@@ -72,5 +63,10 @@ public class RPGScreenService {
 
     public void changeCurrentClass(rpgClassEnum value){
         currentClass.set(value);
+    }
+
+    public void saveData(){
+        ModPlayer player = new ModPlayer(currentClass.get(), 1);
+        playerService.saveModPlayer(player);
     }
 }

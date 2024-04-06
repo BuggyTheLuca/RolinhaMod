@@ -63,12 +63,9 @@ public final class RPGScreen extends Screen {
         this.optionsRowList.addOption(new IteratableOption(
                 "rolinhamod.RPGgui.currentClass.title",
                 (unused, newValue) ->{
-                    if(!rpgScreenService.isClassSelected()){
                         rpgScreenService.changeCurrentClass(rpgClassEnum.values()[
                                 (rpgScreenService.currentClass().ordinal() + newValue)
                                         % rpgClassEnum.values().length]);
-                        System.out.println(rpgScreenService.isClassSelected());
-                    }
                 },
                 (unused, option) -> new StringTextComponent(I18n.format(
                         "rolinhamod.RPGgui.currentClass.title"
@@ -103,7 +100,7 @@ public final class RPGScreen extends Screen {
 
     @Override
     public void onClose() {
-        rpgScreenService.blockClassSelect();
+        rpgScreenService.saveData();
         super.onClose();
     }
 }
